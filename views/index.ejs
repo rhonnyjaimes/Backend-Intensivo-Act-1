@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Estudiantes</title>
+    <style>
+        body {
+            background-color: #f1f8e9;
+            color: #1b5e20;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #a5d6a7;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #2e7d32;
+        }
+        .btn {
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            margin: 5px;
+            display: inline-block;
+        }
+        .btn-primary {
+            background-color: #66bb6a;
+        }
+        .btn-info {
+            background-color: #43a047;
+        }
+        .btn-warning {
+            background-color: #ffeb3b;
+            color: #1b5e20;
+        }
+        .btn-danger {
+            background-color: #e53935;
+        }
+        .table {
+            margin-top: 20px;
+            background-color: #c8e6c9;
+            border-radius: 8px;
+        }
+        thead {
+            background-color: #81c784;
+        }
+        th, td {
+            text-align: center;
+            padding: 10px;
+        }
+        th {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Estudiantes</h1>
+
+        <!-- Formulario para agregar estudiante -->
+        <form action="/estudiantes" method="POST" class="mb-4">
+            <h4>Agregar Estudiante</h4>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="cedula">Cédula</label>
+                <input type="text" class="form-control" id="cedula" name="cedula" required>
+            </div>
+            <div class="form-group">
+                <label for="correoElectronico">Correo Electrónico</label>
+                <input type="email" class="form-control" id="correoElectronico" name="correoElectronico" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar Estudiante</button>
+        </form>
+
+        <!-- Lista de estudiantes -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% estudiantes.forEach(estudiante => { %>
+                    <tr>
+                        <td><%= estudiante.id %></td>
+                        <td><%= estudiante.nombre %></td>
+                        <td>
+                            <a href="/estudiantes/vista/<%= estudiante.id %>" class="btn btn-info">Detalles</a>
+                            <a href="/estudiantes/editar/<%= estudiante.id %>" class="btn btn-warning">Editar</a>
+                            <form action="/estudiantes/<%= estudiante.id %>" method="POST" style="display:inline;">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+

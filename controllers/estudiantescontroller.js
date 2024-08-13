@@ -1,52 +1,44 @@
 const Estudiante = require('../models/estudiantes');
 let estudiantes = require('../data/estudiantes');
 
-const getEstudiantes = (req, res) => {
-  res.json(estudiantes);
+exports.listarEstudiantes = (req, res) => {
+    res.render('index', { estudiantes });
 };
 
-const createEstudiante = (req, res) => {
-  const { nombre, cedula, correoElectronico } = req.body;
-  const id = estudiantes.length + 1;
-  const nuevoEstudiante = new Estudiante(id, nombre, cedula, correoElectronico);
-  estudiantes.push(nuevoEstudiante);
-  res.status(201).json(nuevoEstudiante);
+exports.detalleEstudiante = (req, res) => {
+    const id = parseInt(req.params.id);
+    const estudiante = estudiantes.find(est => est.id === id);
+    if (estudiante) {
+        res.render('detalle', { estudiante });
+    } else {
+        res.status(404).send('Estudiante no encontrado');
+    }
 };
 
-const getEstudianteById = (req, res) => {
-  const { id } = req.params;
-  const estudiante = estudiantes.find(est => est.id === parseInt(id));
-  if (estudiante) {
-    res.json(estudiante);
-  } else {
-    res.status(404).json({ message: 'Estudiante no encontrado' });
-  }
+exports.agregarEstudiante = (req, res) => {
+    const { nombre, cedula, correoElectronico } = req.body;
+    const nuevoId = estudiantes.length ? estudiantes[estudiantes.length - 1].id + 1 : 1;
+    estudiantes.push({ id: nuevoId, nombre, cedula, correoElectronico });
+    res.redirect('/estudiantes');
 };
 
-const updateEstudianteById = (req, res) => {
-  const { id } = req.params;
-  const { nombre, cedula, correoElectronico } = req.body;
-  const estudiante = estudiantes.find(est => est.id === parseInt(id));
-  if (estudiante) {
-    estudiante.nombre = nombre;
-    estudiante.cedula = cedula;
-    estudiante.correoElectronico = correoElectronico;
-    res.json(estudiante);
-  } else {
-    res.status(404).json({ message: 'Estudiante no encontrado' });
-  }
+exports.editarEstudiante = (req, res) => {
+    const id = parseInt(req.params.id);
+    const estudiante = estudiantes.find(est => est.id === id);
+    if (estudiante) {
+        res.render('editar', { estudiante });
+    } else {
+        res.status(404).send('Estudiante no encontrado');
+    }
 };
 
-const deleteEstudianteById = (req, res) => {
-  const { id } = req.params;
-  estudiantes = estudiantes.filter(est => est.id !== parseInt(id));
-  res.status(204).send();
-};
-
-module.exports = {
-  getEstudiantes,
-  createEstudiante,
-  getEstudianteById,
-  updateEstudianteById,
-  deleteEstudianteById
+exports.eliminarEstudiante = (req, res) => {
+    const id = parseInt(req.params.id);
+    const index = estudiantes.findIndex(est => est.id === id);
+    if (index !== -1) {
+        estudiantes.splice(index, 1);
+        res.redirect('/estudiantes');
+    } else {
+        res.status(404).send('Estudiante no encontrado');
+    }
 };

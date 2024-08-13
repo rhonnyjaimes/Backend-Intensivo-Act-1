@@ -1,9 +1,10 @@
 {
   "name": "actividad-1-intensivo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Servidor backend para manejar operaciones CRUD en una lista de estudiantes utilizando Node.js y Express.js.",
+  "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,6 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "method-override": "^3.0.0",
+    "nodemon": "^2.0.22"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
