@@ -1,20 +1,28 @@
 const express = require('express');
 const router = express.Router();
-const estudiantesController = require('../controllers/estudiantescontroller');
-
-// Listar todos los estudiantes
+const estudiantesController = require('../controllers/estudiantesController');
+// Ruta para listar todos los estudiantes
 router.get('/', estudiantesController.listarEstudiantes);
 
-// Ver detalles de un estudiante
-router.get('/vista/:id', estudiantesController.detalleEstudiante);
+// Ruta para mostrar el formulario de agregar estudiante
+router.get('/agregar', (req, res) => {
+    res.render('agregar'); // Asegúrate de tener la vista agregar.ejs
+});
 
-// Agregar un nuevo estudiante
-router.post('/', estudiantesController.agregarEstudiante);
+// Ruta para procesar la adición de un nuevo estudiante
+router.post('/agregar', estudiantesController.agregarEstudiante);
 
-// Editar un estudiante (muestra un formulario de edición)
+// Ruta para mostrar el formulario de edición de un estudiante
 router.get('/editar/:id', estudiantesController.editarEstudiante);
 
-// Eliminar un estudiante
-router.post('/:id', estudiantesController.eliminarEstudiante);
+// Ruta para procesar la actualización de un estudiante
+router.put('/editar/:id', estudiantesController.actualizarEstudiante);
+
+// Ruta para eliminar un estudiante
+router.delete('/:id', estudiantesController.eliminarEstudiante);
+
+// Ruta para ver los detalles de un estudiante
+router.get('/:id', estudiantesController.detalleEstudiante);
+
 
 module.exports = router;

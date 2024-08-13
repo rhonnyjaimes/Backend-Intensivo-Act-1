@@ -28,6 +28,7 @@ app.get('/', (req, res) => {
   const estudiantes = require('./data/estudiantes'); // Cargar los estudiantes aquí
   res.render('index', { estudiantes });
 });
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Iniciar el servidor
 app.listen(PORT, () => {

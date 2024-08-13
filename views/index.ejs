@@ -1,87 +1,102 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Estudiantes</title>
     <style>
         body {
-            background-color: #f1f8e9;
-            color: #1b5e20;
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
         }
         .container {
-            background-color: #a5d6a7;
+            width: 80%;
+            margin: 0 auto;
             padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            color: #2e7d32;
+            color: #007bff;
+            text-align: center;
         }
-        .btn {
-            padding: 10px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            margin: 5px;
-            display: inline-block;
+        .membrete {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        .btn-primary {
-            background-color: #66bb6a;
+        .membrete p {
+            margin: 0;
+            color: #333;
         }
-        .btn-info {
-            background-color: #43a047;
+        .membrete img {
+            width: 100px;
+            height: auto;
         }
-        .btn-warning {
-            background-color: #ffeb3b;
-            color: #1b5e20;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
         }
-        .btn-danger {
-            background-color: #e53935;
-        }
-        .table {
-            margin-top: 20px;
-            background-color: #c8e6c9;
-            border-radius: 8px;
-        }
-        thead {
-            background-color: #81c784;
+        table, th, td {
+            border: 1px solid #ddd;
         }
         th, td {
-            text-align: center;
             padding: 10px;
+            text-align: left;
         }
         th {
+            background-color: #007bff;
             color: #fff;
+        }
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        .btn-edit {
+            background-color: #28a745;
+        }
+        .btn-edit:hover {
+            background-color: #218838;
+        }
+        .btn-add {
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="membrete">
+            <img src="/imagen/UVM.png" alt="Logo UVM">
+            <p>Estudiante</p>
+            <p>Rhonny Andres Jaimes Gonzalez C.I V-29.718.095</p>
+            <p>Materia: Backend Intensivo</p>
+            <p>Profesor: Yerson González</p>
+        </div>
         <h1>Lista de Estudiantes</h1>
-
-        <!-- Formulario para agregar estudiante -->
-        <form action="/estudiantes" method="POST" class="mb-4">
-            <h4>Agregar Estudiante</h4>
-            <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" required>
-            </div>
-            <div class="form-group">
-                <label for="cedula">Cédula</label>
-                <input type="text" class="form-control" id="cedula" name="cedula" required>
-            </div>
-            <div class="form-group">
-                <label for="correoElectronico">Correo Electrónico</label>
-                <input type="email" class="form-control" id="correoElectronico" name="correoElectronico" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Agregar Estudiante</button>
-        </form>
-
-        <!-- Lista de estudiantes -->
-        <table class="table table-bordered">
+        <a href="http://localhost:3000/estudiantes/agregar" class="btn btn-add">Agregar Estudiante</a>
+        <table>
             <thead>
                 <tr>
                     <th>ID</th>
@@ -90,23 +105,22 @@
                 </tr>
             </thead>
             <tbody>
-                <% estudiantes.forEach(estudiante => { %>
-                    <tr>
-                        <td><%= estudiante.id %></td>
-                        <td><%= estudiante.nombre %></td>
-                        <td>
-                            <a href="/estudiantes/vista/<%= estudiante.id %>" class="btn btn-info">Detalles</a>
-                            <a href="/estudiantes/editar/<%= estudiante.id %>" class="btn btn-warning">Editar</a>
-                            <form action="/estudiantes/<%= estudiante.id %>" method="POST" style="display:inline;">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                            </form>
+                
+                    <% estudiantes.forEach(est => { %>
+                        <tr>
+                            <td><%= est.id %></td>
+                            <td><%= est.nombre %></td>
+                            <td>
+                                <a href="/estudiantes/<%= est.id %>" class="btn">Detalles</a>
+                                <a href="/estudiantes/editar/<%= est.id %>" class="btn btn-edit">Editar</a>
+                                <form action="/estudiantes/<%= est.id %>?_method=DELETE" method="POST" style="display: inline;">
+                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                </form>
                         </td>
                     </tr>
-                <% }); %>
+                <% }) %>
             </tbody>
         </table>
     </div>
 </body>
 </html>
-

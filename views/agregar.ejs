@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Estudiante</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f5ff; /* Fondo más claro */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 60%;
+            margin: 5% auto; /* Centrado verticalmente */
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #007bff; /* Color principal */
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px; /* Tamaño del título */
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px; /* Bordes más redondeados */
+            box-sizing: border-box; /* Incluye padding en el ancho total */
+            font-size: 16px; /* Tamaño del texto */
+        }
+        .form-group input:focus {
+            border-color: #007bff; /* Borde azul al enfocar */
+            outline: none; /* Elimina el borde de enfoque predeterminado */
+        }
+        .btn {
+            background-color: #007bff; /* Color del botón */
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px; /* Bordes del botón redondeados */
+            margin-top: 20px;
+            transition: background-color 0.3s ease; /* Transición suave */
+        }
+        .btn:hover {
+            background-color: #0056b3; /* Color del botón al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Agregar Estudiante</h1>
+        <form action="/estudiantes/agregar" method="POST">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="cedula">Cédula:</label>
+                <input type="text" id="cedula" name="cedula" placeholder="Cédula" required>
+            </div>
+            <div class="form-group">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" placeholder="Edad" required>
+            </div>
+            <div class="form-group">
+                <label for="carrera">Carrera:</label>
+                <input type="text" id="carrera" name="carrera" placeholder="Carrera" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" name="correo" placeholder="Correo" required>
+            </div>
+            <button type="submit" class="btn">Agregar</button>
+        </form>
+    </div>
+</body>
+</html>
