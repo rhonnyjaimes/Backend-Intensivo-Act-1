@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "nombre": "Rhonny Jaimes",
+    "cedula": "29718095",
+    "edad": 21,
+    "carrera": "Ingenieria",
+    "correo": "rhonny@uvm.com"
+  },
+  {
+    "id": 2,
+    "nombre": "María Gómez",
+    "cedula": "25634092",
+    "edad": 21,
+    "carrera": "Arquitectura",
+    "correo": "maria@uvm.com"
+  },
+  {
+    "id": 3,
+    "nombre": "Yerson Perez",
+    "cedula": "30748234",
+    "edad": 23,
+    "carrera": "Medicina",
+    "correo": "yerson@uvm.com"
+  },
+  {
+    "id": 4,
+    "nombre": "Laura Ruiz",
+    "cedula": "31567890",
+    "edad": 24,
+    "carrera": "Derecho",
+    "correo": "laura@uvm.com"
+  },
+  {
+    "id": 5,
+    "nombre": "Carlos Martínez",
+    "cedula": "32234567",
+    "edad": 20,
+    "carrera": "Psicología",
+    "correo": "carlos@uvm.com"
+  },
+  {
+    "id": 6,
+    "nombre": "Ana Morales",
+    "cedula": "32987654",
+    "edad": 22,
+    "carrera": "Economía",
+    "correo": "ana@uvm.com"
+  },
+  {
+    "id": 7,
+    "nombre": "Javier López",
+    "cedula": "33678901",
+    "edad": 25,
+    "carrera": "Literatura",
+    "correo": "javier@uvm.com"
+  },
+  {
+    "id": 8,
+    "nombre": "Sofía Castro",
+    "cedula": "34567890",
+    "edad": 21,
+    "carrera": "Biología",
+    "correo": "sofia@uvm.com"
+  }
+]
