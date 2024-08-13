@@ -14,7 +14,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Configurar method-override para permitir métodos PUT y DELETE en formularios
-app.use(methodOverride('_method'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method')); // Para manejar PUT y DELETE desde formularios HTML
+
 
 // Configuración de la carpeta de vistas
 app.set('views', path.join(__dirname, 'views'));
@@ -30,7 +33,11 @@ app.get('/', (req, res) => {
 });
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Iniciar el servidor
+// Iniciar el servidor// Middleware para analizar JSON y urlencoded
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/estudiantes', estudiantesRoutes);
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

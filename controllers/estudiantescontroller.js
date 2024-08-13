@@ -18,12 +18,14 @@ const leerEstudiantes = () => {
 // Guardar los estudiantes en el archivo JSON
 const guardarEstudiantes = (estudiantes) => {
     return new Promise((resolve, reject) => {
-        fs.writeFile(estudiantesPath, JSON.stringify(estudiantes, null, 2), (err) => {
-            if (err) {
-                return reject(err);
-            }
-            resolve();
-        });
+        setTimeout(() => {
+            fs.writeFile(estudiantesPath, JSON.stringify(estudiantes, null, 2), (err) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve();
+            });
+        }, 1000); 
     });
 };
 
@@ -37,11 +39,14 @@ exports.agregarEstudiante = async (req, res) => {
         estudiantes.push(nuevoEstudiante);
         await guardarEstudiantes(estudiantes);
 
-        res.redirect('/estudiantes');
+        console.log(`Estudiante agregado: ${JSON.stringify(nuevoEstudiante)}`);
+         res.redirect('/estudiantes');
     } catch (error) {
+        console.error('Error al agregar el estudiante:', error);
         res.status(500).send('Error al agregar el estudiante');
     }
 };
+
 
 exports.editarEstudiante = async (req, res) => {
     try {

@@ -33,34 +33,18 @@
   },
   {
     "id": 5,
-    "nombre": "Carlos Martínez",
-    "cedula": "32234567",
-    "edad": 20,
-    "carrera": "Psicología",
-    "correo": "carlos@uvm.com"
+    "nombre": "Norlys",
+    "cedula": "52342314",
+    "edad": "30",
+    "carrera": "Ingenieria",
+    "correo": "norlys@uvm.com"
   },
   {
     "id": 6,
-    "nombre": "Ana Morales",
-    "cedula": "32987654",
-    "edad": 22,
-    "carrera": "Economía",
-    "correo": "ana@uvm.com"
-  },
-  {
-    "id": 7,
-    "nombre": "Javier López",
-    "cedula": "33678901",
-    "edad": 25,
-    "carrera": "Literatura",
-    "correo": "javier@uvm.com"
-  },
-  {
-    "id": 8,
-    "nombre": "Sofía Castro",
-    "cedula": "34567890",
-    "edad": 21,
-    "carrera": "Biología",
-    "correo": "sofia@uvm.com"
+    "nombre": "Edicson Jaimes",
+    "cedula": "5720312",
+    "edad": "34",
+    "carrera": "Derecho",
+    "correo": "edicson@uvm.com"
   }
 ]
