@@ -3,7 +3,6 @@ const path = require('path');
 const Estudiante = require('../models/estudiantes');
 const estudiantesPath = path.join(__dirname, '../data/estudiantes.json');
 
-// Leer los estudiantes desde el archivo JSON
 const leerEstudiantes = () => {
     return new Promise((resolve, reject) => {
         fs.readFile(estudiantesPath, 'utf-8', (err, data) => {
@@ -15,7 +14,6 @@ const leerEstudiantes = () => {
     });
 };
 
-// Guardar los estudiantes en el archivo JSON
 const guardarEstudiantes = (estudiantes) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -107,6 +105,7 @@ exports.eliminarEstudiante = async (req, res) => {
         if (index !== -1) {
             estudiantes.splice(index, 1);
             await guardarEstudiantes(estudiantes);
+            console.log("Antes de redi" + res.status);
             res.redirect('/estudiantes');
         } else {
             res.status(404).send('Estudiante no encontrado');

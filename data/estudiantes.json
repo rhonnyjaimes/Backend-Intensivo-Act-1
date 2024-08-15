@@ -1,27 +1,27 @@
 [
   {
     "id": 1,
-    "nombre": "Rhonny Jaimes",
-    "cedula": "29718095",
-    "edad": 21,
-    "carrera": "Ingenieria",
-    "correo": "rhonny@uvm.com"
+    "nombre": "Jose",
+    "cedula": "28934124",
+    "edad": "30",
+    "carrera": "Ingenieria Industrial",
+    "correo": "jose@uvm.com"
   },
   {
     "id": 2,
-    "nombre": "María Gómez",
-    "cedula": "25634092",
-    "edad": 21,
-    "carrera": "Arquitectura",
-    "correo": "maria@uvm.com"
+    "nombre": "Pedro",
+    "cedula": "30213456",
+    "edad": "22",
+    "carrera": "Ingeniería",
+    "correo": "pedro@uvm.com"
   },
   {
     "id": 3,
-    "nombre": "Yerson Perez",
-    "cedula": "30748234",
-    "edad": 23,
-    "carrera": "Medicina",
-    "correo": "yerson@uvm.com"
+    "nombre": "Rhonny Jaimes",
+    "cedula": "29718095",
+    "edad": "21",
+    "carrera": "Ingenieria en Computacion",
+    "correo": "rhonny@uvm.com"
   },
   {
     "id": 4,
@@ -33,18 +33,26 @@
   },
   {
     "id": 5,
-    "nombre": "Norlys",
+    "nombre": "Eduardo",
     "cedula": "52342314",
     "edad": "30",
-    "carrera": "Ingenieria",
-    "correo": "norlys@uvm.com"
+    "carrera": "Contaduria",
+    "correo": "eduardo@uvm.com"
   },
   {
     "id": 6,
-    "nombre": "Edicson Jaimes",
-    "cedula": "5720312",
-    "edad": "34",
+    "nombre": "Sofia",
+    "cedula": "25134563",
+    "edad": "22",
+    "carrera": "Ingeniería",
+    "correo": "sofia@uvm.com"
+  },
+  {
+    "id": 7,
+    "nombre": "Roberto",
+    "cedula": "2458909",
+    "edad": "31",
     "carrera": "Derecho",
-    "correo": "edicson@uvm.com"
+    "correo": "Roberto@uvm.com"
   }
 ]
